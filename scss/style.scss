@@ -6,5 +6,200 @@ body{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    font-size: 1rem;
+}
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: #000000;
 }
 
+.flex-container{
+    background-color: #f1f1f3;
+    display: flex;
+    height: 100vh;
+    // flex-direction: column;
+    // justify-content: center;
+    @media (min-width:19rem) and (max-width:50rem){
+        &{
+            flex-wrap: wrap;
+            font-size: clamp(16px, 4vw, 18px);
+        }    
+    }
+    .non-sliding-container{
+        background-color: #f1f1f3;
+        width: 50%;
+
+        @media (min-width:19rem) and (max-width:50rem){
+            &{
+                width: 100%;
+                
+            }    
+        }
+
+        .upper-content{
+
+            @media (min-width:19rem) and (max-width:50rem){
+                &{
+                    display: none;
+                }    
+            }
+
+        }
+        .mid-content{
+            display: flex;
+
+            @media (min-width:19rem) and (max-width:50rem){
+                &{
+                    flex-wrap: wrap;
+                }    
+            }
+            
+            .vertical-navbar{
+                // display: flex;
+                width: 20%;
+                height: 90vh;
+                position: relative;
+                @media (min-width:19rem) and (max-width:50rem){
+                    &{
+                        width: 100%;
+                        height: auto;
+                        margin-block: 1em;        
+                    }    
+                }
+                
+                .list-group{
+                    position: absolute;
+                    top: 15em;
+                    left: -160px;
+                    display: flex;
+                    transform: rotate(-90deg);
+                    @media (min-width:19rem) and 
+                    (max-width:50rem){
+                        &{
+                            transform: rotate(0deg);
+                            position: static;
+                            flex-wrap: wrap;
+                            justify-content: space-evenly;
+                            flex-grow: 1;
+                        }    
+                    }
+                    .nav-list{
+
+                        @media (min-width:19rem) and (max-width:50rem){
+                            &{
+                                flex-grow: 1;
+                                flex-shrink: 1;
+                                justify-self: flex-start;
+                            }    
+                        }
+
+                        .nav-link{
+                            padding: 1em;
+                            font-size: 10px;
+
+                            @media (min-width:19rem) and (max-width:50rem){
+                                &{
+                                    margin-inline: 1em;
+                                }    
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            .banner{
+                display: flex;
+                flex-direction: column ;
+                align-items: flex-end;
+                justify-content: center;
+                text-align: end;
+                padding-right: 2em;
+                @media (min-width:19rem) and (max-width:50rem){
+                    &{
+                        justify-content: flex-start;
+                        position: relative;
+                        padding-left: 2em;
+                        text-align: start;
+                    }    
+                }
+                .title{
+                    width: 40%;
+                    margin-block: 1em;
+                    @media (min-width:19rem) and (max-width:50rem){
+                        &{
+                            width: 100%;
+                        }    
+                    }
+                }
+
+                .contact{
+                    width: 80%;
+                    margin-bottom: 1em;
+                    .address{
+
+                        @media (min-width:19rem) and (max-width:50rem){
+                            &{
+                                position: relative;
+                                left: -25%;
+                            }    
+                        }
+                    }
+                }
+
+                .para{
+                    width: 70%;
+                    margin-bottom: 1em;
+
+                    @media (min-width:19rem) and (max-width:50rem){
+                        &{
+                            text-align: left;
+                            width: 100%;
+                        }    
+                    }
+                }
+
+                .btn-group{
+
+                    .btn{
+                        padding: 1em;
+                        border: none;
+                        border-radius: 5px;
+                        @media (min-width:19rem) and (max-width:50rem){
+                            &{
+                                
+                                margin: 0.5em;
+                            }    
+                        }
+                    }
+                    .btn-white-outline{
+                        border: 2px solid black;
+                    }
+                    .btn-black{
+                        background-color: #000000;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    .sliding-container{
+        // background-color: bisque;
+        width: 50%;
+
+        @media (min-width:19rem) and (max-width:50rem){
+            &{
+                width: 100%;
+            }    
+        }
+    }
+}
