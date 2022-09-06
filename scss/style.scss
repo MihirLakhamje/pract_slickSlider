@@ -23,7 +23,6 @@ a{
 }
 
 .flex-container{
-    background-color: #f1f1f3;
     display: flex;
     height: 100vh;
     // flex-direction: column;
@@ -37,15 +36,20 @@ a{
     .non-sliding-container{
         background-color: #f1f1f3;
         width: 50%;
+        position: relative;
 
         @media (min-width:19rem) and (max-width:50rem){
             &{
                 width: 100%;
-                
+                padding-bottom: 3em;
             }    
         }
 
         .upper-content{
+            position: absolute;
+            top: 0;
+            left: 98%;
+            z-index: 3;
 
             @media (min-width:19rem) and (max-width:50rem){
                 &{
@@ -133,8 +137,9 @@ a{
                     }    
                 }
                 .title{
-                    width: 40%;
+                    width: 60%;
                     margin-block: 1em;
+                    font-size: clamp(16px, 10vw ,40px);
                     @media (min-width:19rem) and (max-width:50rem){
                         &{
                             width: 100%;
@@ -191,15 +196,138 @@ a{
                 }
             }
         }
+        .lower-content{
+            padding-left: 2em;
+        }
     }
     .sliding-container{
         // background-color: bisque;
         width: 50%;
-
+        background-color: #fff;
+        position: relative;
+        
         @media (min-width:19rem) and (max-width:50rem){
             &{
                 width: 100%;
             }    
+        }
+
+        .slick-arrow{
+            position: absolute;
+            bottom: 30px;
+            left: -20px;
+            border: none;
+            background-color: #00000000;
+
+            display: flex;
+            flex-direction: column;
+            font-size: 18px;
+            z-index: 3;
+            @media (min-width:19rem) and (max-width:50rem){
+                &{
+                    top: -15px;
+                }    
+            }
+            img{
+                width: 30px;
+            }
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        .slick-prev{
+            bottom: 70px;
+            left: -20px;
+            @media (min-width:19rem) and (max-width:50rem){
+                &{
+                    left: 15px;
+                }    
+            }
+        }
+        .slick-next{
+            @media (min-width:19rem) and (max-width:50rem){
+                &{
+                    left: 90%;
+                }    
+            }
+        }
+
+        .slider-item{
+            padding: 4em 5em;
+            @media (min-width:19rem) and (max-width:50rem){
+                &{
+                    padding: 1em;
+                }    
+            }
+            .img-container{
+                max-width: 400px;
+                width: 75%;
+                height: 500px;
+                // border: 1px solid blue;
+                overflow: hidden;
+
+                @media (min-width:19rem) and (max-width:50rem){
+                    &{
+                        height: 400px;
+                        width: 90%;
+                    }    
+                }
+                
+                img{
+                    object-fit: fill;
+                }
+            }
+        }
+        .slick-dots{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            width: 90%;
+            top: 6em;
+            @media (min-width:19rem) and (max-width:50rem){
+                &{
+                    right: 2em;
+                }    
+            }
+
+            li{
+                button{
+                    position: relative;
+                    border: none;
+                    font-size: 0%;
+                    width: 5px;
+                    height: 12px;
+                    background-color: #00000000;
+
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        width: 50%;
+                        height: 50%;
+                        top: 0;
+                        top: 0;
+                        background-color: #fff;
+                        border: 1px solid #000000;
+                        border-radius: 2px;
+                    }
+                }
+            }
+            
+            .slick-active{
+                button{
+                    position: relative;
+                    
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        width: 50%;
+                        height: 50%;
+                        background-color: #000000;
+                    }
+                }
+            }
         }
     }
 }

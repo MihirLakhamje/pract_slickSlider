@@ -27,7 +27,6 @@ a {
 }
 
 .flex-container {
-  background-color: #f1f1f3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -45,12 +44,21 @@ a {
 .flex-container .non-sliding-container {
   background-color: #f1f1f3;
   width: 50%;
+  position: relative;
 }
 
 @media (min-width: 19rem) and (max-width: 50rem) {
   .flex-container .non-sliding-container {
     width: 100%;
+    padding-bottom: 3em;
   }
+}
+
+.flex-container .non-sliding-container .upper-content {
+  position: absolute;
+  top: 0;
+  left: 98%;
+  z-index: 3;
 }
 
 @media (min-width: 19rem) and (max-width: 50rem) {
@@ -165,8 +173,9 @@ a {
 }
 
 .flex-container .non-sliding-container .mid-content .banner .title {
-  width: 40%;
+  width: 60%;
   margin-block: 1em;
+  font-size: clamp(16px, 10vw, 40px);
 }
 
 @media (min-width: 19rem) and (max-width: 50rem) {
@@ -220,13 +229,154 @@ a {
   color: #fff;
 }
 
+.flex-container .non-sliding-container .lower-content {
+  padding-left: 2em;
+}
+
 .flex-container .sliding-container {
   width: 50%;
+  background-color: #fff;
+  position: relative;
 }
 
 @media (min-width: 19rem) and (max-width: 50rem) {
   .flex-container .sliding-container {
     width: 100%;
   }
+}
+
+.flex-container .sliding-container .slick-arrow {
+  position: absolute;
+  bottom: 30px;
+  left: -20px;
+  border: none;
+  background-color: #00000000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 18px;
+  z-index: 3;
+}
+
+@media (min-width: 19rem) and (max-width: 50rem) {
+  .flex-container .sliding-container .slick-arrow {
+    top: -15px;
+  }
+}
+
+.flex-container .sliding-container .slick-arrow img {
+  width: 30px;
+}
+
+.flex-container .sliding-container .slick-arrow:hover {
+  cursor: pointer;
+}
+
+.flex-container .sliding-container .slick-prev {
+  bottom: 70px;
+  left: -20px;
+}
+
+@media (min-width: 19rem) and (max-width: 50rem) {
+  .flex-container .sliding-container .slick-prev {
+    left: 15px;
+  }
+}
+
+@media (min-width: 19rem) and (max-width: 50rem) {
+  .flex-container .sliding-container .slick-next {
+    left: 90%;
+  }
+}
+
+.flex-container .sliding-container .slider-item {
+  padding: 4em 5em;
+}
+
+@media (min-width: 19rem) and (max-width: 50rem) {
+  .flex-container .sliding-container .slider-item {
+    padding: 1em;
+  }
+}
+
+.flex-container .sliding-container .slider-item .img-container {
+  max-width: 400px;
+  width: 75%;
+  height: 500px;
+  overflow: hidden;
+}
+
+@media (min-width: 19rem) and (max-width: 50rem) {
+  .flex-container .sliding-container .slider-item .img-container {
+    height: 400px;
+    width: 90%;
+  }
+}
+
+.flex-container .sliding-container .slider-item .img-container img {
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.flex-container .sliding-container .slick-dots {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 90%;
+  top: 6em;
+}
+
+@media (min-width: 19rem) and (max-width: 50rem) {
+  .flex-container .sliding-container .slick-dots {
+    right: 2em;
+  }
+}
+
+.flex-container .sliding-container .slick-dots li button {
+  position: relative;
+  border: none;
+  font-size: 0%;
+  width: 5px;
+  height: 12px;
+  background-color: #00000000;
+}
+
+.flex-container .sliding-container .slick-dots li button::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 0;
+  top: 0;
+  background-color: #fff;
+  border: 1px solid #000000;
+  border-radius: 2px;
+}
+
+.flex-container .sliding-container .slick-dots .slick-active button {
+  position: relative;
+}
+
+.flex-container .sliding-container .slick-dots .slick-active button::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background-color: #000000;
 }
 /*# sourceMappingURL=style.css.map */
